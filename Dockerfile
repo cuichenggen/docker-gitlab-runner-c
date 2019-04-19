@@ -1,4 +1,4 @@
-FROM  teeks99/clang-ubuntu-docker:9
+FROM  senggen/clang-ubuntu
 
 # install clang lint tool
 RUN apt-get -y update && \
