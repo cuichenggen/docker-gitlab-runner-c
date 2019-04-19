@@ -5,9 +5,11 @@ RUN apt-get -y update && \
     apt-get -y upgrade && \
     apt-get -y install clang-tidy cppcheck splint llvm && \
     apt-get -y install gcc g++ lcov && \
+    apt-get -y install valgrind && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
+
     
 
 # install gitlab-runner
