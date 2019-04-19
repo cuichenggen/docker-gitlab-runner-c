@@ -24,6 +24,6 @@ RUN apt-get -y update && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-VOLUME ["/etc/gitlab-runner", "/etc/gitlab-runner"]
+VOLUME ["/etc/gitlab-runner/c", "/etc/gitlab-runner"]
 ENTRYPOINT ["/usr/bin/dumb-init", "gitlab-runner"]
 CMD ["run", "--user=root", "--working-directory=/home/gitlab-runner"]
