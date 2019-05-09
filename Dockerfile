@@ -26,7 +26,8 @@ RUN apt-get -y update && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-ADD sonarscanner /usr/local/
+RUN mkdir /usr/local/sonarscanner
+ADD sonarscanner /usr/local/sonarscanner
 ENV PATH="/usr/local/sonarscanner/bin:${PATH}"
 
 VOLUME ["/etc/gitlab-runner/c", "/etc/gitlab-runner"]
