@@ -10,7 +10,7 @@ RUN apt-get -y update && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-    
+
 
 # install gitlab-runner
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 /usr/bin/dumb-init
@@ -25,6 +25,9 @@ RUN apt-get -y update && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
+
+ADD sonarscanner /usr/local/
+ENV PATH="/usr/local/sonarscanner/bin:${PATH}"
 
 VOLUME ["/etc/gitlab-runner/c", "/etc/gitlab-runner"]
 ENTRYPOINT ["/usr/bin/dumb-init", "gitlab-runner"]
