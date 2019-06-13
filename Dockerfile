@@ -6,12 +6,19 @@ RUN apt-get -y update && \
     apt-get -y install clang-tidy cppcheck splint llvm && \
     apt-get -y install gcc g++ lcov && \
     apt-get -y install valgrind && \
-    apt-get -y install cmake && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-
+#install cmake
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5.tar.gz && \
+    tar -xvzf cmake-3.14.5.tar.gz && \
+    cd cmake-3.14.5/ && \
+    ./configure && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf cmake-3.14.5
 
 # install gitlab-runner
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 /usr/bin/dumb-init
