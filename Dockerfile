@@ -6,6 +6,7 @@ RUN apt-get -y update && \
     apt-get -y install clang-tidy cppcheck splint llvm && \
     apt-get -y install gcc g++ lcov && \
     apt-get -y install valgrind && \
+    apt-get -y install wget && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
