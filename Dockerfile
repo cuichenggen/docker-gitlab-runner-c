@@ -7,7 +7,7 @@ RUN apt-get -y update && \
     apt-get -y install gcc g++ lcov && \
     apt-get -y install valgrind && \
     apt-get -y install wget curl && \
-    apt-get -y libpcap-dev && \
+    apt-get -y install libpcap-dev && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
